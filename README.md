@@ -5,7 +5,9 @@ Trabalho de clínica veterinária do Técnico em Informática, segundo semestre 
 
 Protótipo Figma [LINK]: https://www.figma.com/design/uxk9P2VwbDa964dw4CMAKu/Sem-t%C3%ADtulo?node-id=3-682&t=1IR1WQj4OqZvaSx7-1
 
-## Diagrama UML
+## Diagramas UML
+
+### Diagrama Casos de Uso
 
 ```mermaid
 flowchart TD
@@ -24,4 +26,32 @@ flowchart TD
     garçom -- "recebe pedido" --- comida
 
     vinho -. "estende" .-> comida
+```
+
+### Diagrama de Classe
+```mermaid
+classDiagram
+    class Veterinario {
+        -CPF: string 
+        -Nome: string
+        -CRMV: string
+        +RealizarConsulta() Consulta
+        +PreencherProntuario() void 
+        +Prescrever Receita () void
+        +getNome() string
+    }
+        Veterinario -- Animal
+        Animal -- Tutor
+        Veterinario -- Recepcionitas
+    class Recepcionitas{
+        -
+    }
+
+    class Animal{
+
+    }
+
+    class Tutor{
+
+    }
 ```
