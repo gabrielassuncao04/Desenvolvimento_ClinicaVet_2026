@@ -11,21 +11,27 @@ Protótipo Figma [LINK]: https://www.figma.com/design/uxk9P2VwbDa964dw4CMAKu/Sem
 
 ```mermaid
 flowchart TD
-    %% atores
-      cliente["cliente"]
-      garçom["garçom"]
+    %% Estilização e Definição de Atores e Casos de Uso
+    Vet([Veterinario])
 
-    %%ações
-    subgraph sistema  
-       pedir["pedir comida"]
-       vinho["pedir vinho"]
+    subgraph Sistema ["Sistema de Clínica Veterinária"]
+        UC1[Cadastrar Tutor]
+        UC2[Cadastrar Animal]
+        UC3[Registrar Consulta]
+        UC4[Consultar Histórico Médico]
+        UC5[Prescrever Tratamento]
     end
 
-    %% relacionamentos
-    cliente -- "faz pedido" --- pedir
-    garçom -- "recebe pedido" --- comida
+    %% Conexões do Ator com as Funcionalidades
+    Vet --> UC1
+    Vet --> UC2
+    Vet --> UC3
+    Vet --> UC4
+    Vet --> UC5
 
-    vinho -. "estende" .-> comida
+    %% Relações lógicas entre os casos de uso
+    UC3 -->|inclui| UC4
+    UC3 -->|inclui| UC5
 ```
 
 ### Diagrama de Classe
