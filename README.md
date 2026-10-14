@@ -31,27 +31,34 @@ flowchart TD
 ### Diagrama de Classe
 ```mermaid
 classDiagram
+    class Tutor {
+        +String nome
+        +String telefone
+        +String endereco
+        +String cpf
+    }
+
+    class Animal {
+        +String nome
+        +String especie
+        +String raca
+        +int idade
+        +float peso
+        +String historicoMedico
+    }
+
     class Veterinario {
-        -CPF: string 
-        -Nome: string
-        -CRMV: string
-        +RealizarConsulta() Consulta
-        +PreencherProntuario() void 
-        +Prescrever Receita () void
-        +getNome() string
-    }
-        Veterinario -- Animal
-        Animal -- Tutor
-        Veterinario -- Recepcionitas
-    class Recepcionitas{
-        -
+        +String nome
+        +String crmv
+        +String especialidade
+        +String telefone
+        +cadastrarTutor()
+        +cadastrarAnimal()
+        +realizarConsulta()
+        +prescreverTratamento()
     }
 
-    class Animal{
-
-    }
-
-    class Tutor{
-
-    }
+    Tutor "1" --> "*" Animal : possui
+    Veterinario "1" --> "*" Tutor : cadastra
+    Veterinario "*" --> "*" Animal : atende
 ```
