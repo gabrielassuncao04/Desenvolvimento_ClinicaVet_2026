@@ -11,9 +11,12 @@ Protótipo Figma [LINK]: https://www.figma.com/design/uxk9P2VwbDa964dw4CMAKu/Sem
 
 ```mermaid
 flowchart TD
-    %% Estilização e Definição de Atores e Casos de Uso
-    Vet([Veterinario])
+    %% Atores e Entidades
+    Vet([Veterinário])
+    Tutor[Tutor / Dono]
+    Animal[Animal / Paciente]
 
+    %% Sistema
     subgraph Sistema ["Sistema de Clínica Veterinária"]
         UC1[Cadastrar Tutor]
         UC2[Cadastrar Animal]
@@ -22,16 +25,19 @@ flowchart TD
         UC5[Prescrever Tratamento]
     end
 
-    %% Conexões do Ator com as Funcionalidades
+    %% Interações do Veterinário com o Sistema
     Vet --> UC1
     Vet --> UC2
     Vet --> UC3
     Vet --> UC4
     Vet --> UC5
 
-    %% Relações lógicas entre os casos de uso
-    UC3 -->|inclui| UC4
-    UC3 -->|inclui| UC5
+    %% Relações das Entidades com o Sistema e entre si
+    Tutor -->|possui| Animal
+    UC1 -->|registra dados de| Tutor
+    UC2 -->|registra dados de| Animal
+    UC3 -->|atende| Animal
+    Tutor -.->|acompanha| Animal
 ```
 
 ### Diagrama de Classe
